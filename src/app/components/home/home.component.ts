@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ShowService} from "../../app.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ export class HomeComponent implements OnInit {
 
    private busqueda:string;
 
-  constructor(private _servicio:ShowService) { }
+  constructor(private _servicio:ShowService, private _router:Router) { }
 
   ngOnInit() {
   }
@@ -18,6 +19,10 @@ export class HomeComponent implements OnInit {
 
   verBusqueda(){
     this._servicio.getShows(this.busqueda).subscribe();
+  }
+
+  cambiarUrl(id:any){
+    this._router.navigate(['/descripcion/',id]);
   }
 
 }

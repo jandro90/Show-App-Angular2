@@ -1,3 +1,25 @@
-<p>
-  descripcion works!
-</p>
+<div class="container">
+  <div class="row">
+
+    <div class="card col-md-6">
+      <img class="card-img-top" [src]="_servicio.descripcion_img?.medium" alt="Card image cap" width="200px">
+      <div class="card-block">
+        <h4 class="card-title">{{_servicio.descripcion.name}}</h4>
+        <p class="card-text"><strong>Language: </strong>{{_servicio.descripcion.language}}</p>
+        <p class="card-text"><strong>Genres: </strong>
+          <span *ngFor="let geners of _servicio.descripcion.genres"> {{geners }}.</span>
+        </p>
+        <p class="card-text"><strong>Days: </strong>
+          <span *ngFor="let days of _servicio.descripcion_days"> {{days}}.</span>
+        </p>
+        <p><strong>At: {{_servicio.descripcion_time}}</strong></p>
+
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Premiered: {{_servicio.descripcion.premiered}}</small>
+      </div>
+    </div>
+  </div>
+
+
+  </div>

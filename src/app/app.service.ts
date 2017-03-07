@@ -7,6 +7,10 @@ import 'rxjs/add/operator/map';
 export class ShowService {
 
   private shows:any[] = [];
+  private descripcion:any[] = [];
+  private descripcion_img:any[] = [];
+  private descripcion_days:any[] = [];
+  private descripcion_time;
 
     constructor(private _http:Http) {
 
@@ -19,9 +23,23 @@ export class ShowService {
 
       return this._http.get(url).map(res => {
         this.shows = res.json();
-        console.log(this.shows);
       });
 
+    }
+
+    getDescripcion(id:any){
+
+      let url:string = `http://api.tvmaze.com/shows/${id}`;
+
+      return this._http.get(url).map(res => {
+        this.descripcion = res.json();
+        this.descripcion_img = res.json().image;
+        this.descripcion_days = res.json().schedule.days;
+        this.descripcion_time = res.json().schedule.time;
+        console.log(this.descripcion);
+        console.log(this.descripcion_img);
+        console.log(this.descripcion_days);
+      })
     }
 
 }
