@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 export class HomeComponent implements OnInit {
 
    private busqueda:string;
+   private mostrar:boolean = true;
 
   constructor(private _servicio:ShowService, private _router:Router) { }
 
@@ -18,6 +19,10 @@ export class HomeComponent implements OnInit {
 
 
   verBusqueda(){
+    if(this.busqueda.length > 0){
+      this.mostrar = false;
+    }
+
     this._servicio.getShows(this.busqueda).subscribe();
   }
 

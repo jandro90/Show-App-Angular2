@@ -1,10 +1,18 @@
 <div class="container">
   <div class="row">
 
-<div class="col-md-12 formulario">
-      <input [(ngModel)]="busqueda" (keyup)="verBusqueda()" class="form-control mr-sm-2" type="text" placeholder="Busca tu Show">
-      <button (click)="verBusqueda()" class="btn btn-block btn-primary" type="submit">buscar</button>
-</div>
+    <div class="col-md-12">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 formulario">
+            <input [(ngModel)]="busqueda" (keyup)="verBusqueda()" class="form-control mr-sm-2" type="text" placeholder="Busca tu Show">
+            <button (click)="verBusqueda()" class="btn btn-block btn-primary" type="submit">buscar</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
 
 
 
@@ -20,6 +28,9 @@
       </div>
     </div>
 
+    <div *ngIf="mostrar" class="alert alert-info col-md-12 text-center" role="alert">
+      <strong>Por Favor usa el Buscador para ver resultados!</strong>
+    </div>
 
   </div>
 </div>
